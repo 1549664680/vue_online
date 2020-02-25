@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import register from '../components/register.vue'
+import inputinfo from '../components/inputinfo.vue'
+import signUpDone from '../components/signUpDone.vue'
+import SignUp from '../views/SignUp.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +12,32 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path:'/SignUp',
+    name:'SignUp',
+    component:SignUp,
+    children:[
+      {
+        path:'/',
+        name:'register',
+        component:register,
+      },
+      {
+        path:'register',
+        name:'register',
+        component:register,
+      },
+      {
+        path:'inputinfo',
+        name:'inputinfo',
+        component:inputinfo,
+      },      {
+        path:'signUpDone',
+        name:'signUpDone',
+        component:signUpDone,
+      }
+    ]
   },
   {
     path: '/about',
