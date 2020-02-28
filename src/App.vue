@@ -5,9 +5,10 @@
     <!-- <goodsDetail/> -->
     <!-- <search/> -->
     <!-- <router-view/> -->
-    <alertTip v-if="showAlert" :alertText="alertText" @closeTip="closeAlert"/>
+    <!-- <alertTip v-if="showAlert" :alertText="alertText" @closeTip="closeAlert"/>
     <Button @click="showCancelAlert">提示退出</Button>
-    <Button @click="showLoginAlert">提示登录</Button> 
+    <Button @click="showLoginAlert">提示登录</Button>  -->
+    <GoodsList/>
   </div>
 </template>
 <script>
@@ -15,6 +16,7 @@ import register from '@/components/register.vue'
 import goodsDetail from '@/components/goodsDetail.vue'
 import search from '@/components/search.vue'
 import alertTip from '@/components/common/alertTip.vue'
+import GoodsList from '@/components/GoodsList.vue'
 export default {
   data() {
     return {
@@ -37,6 +39,7 @@ export default {
   },
   components: {
     alertTip,
+    GoodsList
     // 怎么解决？
   }  
 }
