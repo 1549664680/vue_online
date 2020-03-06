@@ -15,13 +15,13 @@
             <Button slot="append" @click="getcheckNum">获取验证码</Button>
           </i-input>
         </FormItem>
-        <Button type="error" size="large" long @click="handleSubmit('formValidate')">验证手机号</Button>
+        <Button type="error" size="large" long @click="handleSubmit('formValidate') ">验证手机号</Button>
       </Form>
     </div>
 </template>
 
 <script>
-
+import api from '../api/index'
 export default {
   name:'register',
  data(){
@@ -34,7 +34,7 @@ export default {
       ruleValidate: {
         phone: [
           { required: true, message: '手机号不能为空', trigger: 'blur' },
-          { type: 'string', pattern: /^1[3|5|7|8|9][0-9]{9}$/, 
+          { type: 'string', pattern: /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/, 
           message: '手机号格式出错', trigger: 'blur'}
         ],
         checkNum: [
@@ -78,7 +78,7 @@ export default {
       })
     },
     getcheckNum () {
-       if (this.formValidate.phone.length === 11) {
+       if (this.formValidate.phone.length) {
          this.$Message.success({  
            /* this -> vue-> use iview -> Message js 声明调用  prototype
            消息提示组件 $Message  <Form /> */
@@ -87,6 +87,7 @@ export default {
            closable: true
          });
          this.formValidate.reciveNum = 1234
+         sendemail()
        } else {
          this.$Message.error({
            content: '请输入正确的手机号',
