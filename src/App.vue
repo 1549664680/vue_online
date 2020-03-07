@@ -8,7 +8,8 @@
     <!-- <alertTip v-if="showAlert" :alertText="alertText" @closeTip="closeAlert"/>
     <Button @click="showCancelAlert">提示退出</Button>
     <Button @click="showLoginAlert">提示登录</Button>  -->
-    <GoodsList/>
+    <!-- <GoodsList/> -->
+    <watch/>
   </div>
 </template>
 <script>
@@ -17,6 +18,7 @@ import goodsDetail from '@/components/goodsDetail.vue'
 import search from '@/components/search.vue'
 import alertTip from '@/components/common/alertTip.vue'
 import GoodsList from '@/components/GoodsList.vue'
+import watch from '@/components/watch.vue'
 export default {
   data() {
     return {
@@ -39,7 +41,8 @@ export default {
   },
   components: {
     alertTip,
-    GoodsList
+    GoodsList,
+    watch
     // 怎么解决？
   }  
 }
